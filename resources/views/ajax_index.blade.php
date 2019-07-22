@@ -12,7 +12,7 @@
  <body>
   <div class="container">    
      <br />
-     <h3 align="center">Laravel Ajax Crud Tutorial - Delete or Remove Data</h3>
+     <h3 align="center">Laravel Ajax - Delete or Remove Data</h3>
      <br />
      <div align="right">
        <button type="button" name="create_record" id="create_record" class="btn btn-success">Create Record</button>
@@ -152,8 +152,6 @@
 
       event.preventDefault();
       if($('#action_button').val() == 'Add' ){
-
-console.log('i am add fire');
         $.ajax ({
           url: "{{route('ajax-crud.store')}}",
           method: "POST",
@@ -188,7 +186,7 @@ console.log('i am add fire');
       
       if($('#action_button').val() == "Edit")
   {
-    console.log("i am  edit");
+    
    $.ajax({
     url:"{{ route('ajax-crud.update') }}",
     method:"POST",
@@ -227,7 +225,7 @@ console.log('i am add fire');
       var id = $(this).attr('id');
       $('#form_result').html('');
       $.ajax({
-        url: "/ajax-crud/"+id+"/edit",
+        url: "ajax-crud/"+id+"/edit",
         dataType: "json",
         success: function(html){
           $('#first_name').val(html.data.first_name);
@@ -252,7 +250,7 @@ console.log('i am add fire');
 
     $('#ok_button').click(function(){
       $.ajax({
-        url: "/ajax-crud/destroy/"+user_id,
+        url: "ajax-crud/destroy/"+user_id,
         beforeSend:function(){
           $('#ok_button').text('Deleting....');
         },
